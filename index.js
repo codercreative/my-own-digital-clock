@@ -3,15 +3,31 @@
 // ✅create const of hours and minutes
 // ✅fetch time id and set the current hour and minutes
 // ✅fetch am/pm id and set the correct am/pm
+// ✅start clock
 
-let d = new Date();
+let time = document.getElementById("time");
+let everySecond;
 
-let hrs = d.getHours();
-let min = d.getMinutes();
+function displayTime() {
+  let d = new Date();
 
-document.getElementById("time").textContent =
-  hrs + ":" + (min < 10 ? "0" : "" + min);
+  let hrs = d.getHours();
+  let min = d.getMinutes();
+  let sec = d.getSeconds();
 
-let amPM = document.getElementById("amPM");
+  time.innerText =
+    hrs +
+    ":" +
+    (min < 10 ? "0" + min : "" + min) +
+    ":" +
+    (sec < 10 ? "0" + sec : "" + sec);
 
-hrs >= 12 ? (amPM.textContent = "PM") : (amPM.textContent = "AM");
+  let amPM = document.getElementById("amPM");
+  hrs >= 12 ? (amPM.textContent = "PM") : (amPM.textContent = "AM");
+}
+
+function startClock() {
+  displayTime();
+  everySecond = setInterval(displayTime, 1000);
+}
+startClock();
