@@ -6,7 +6,7 @@
 
 ### Screenshot
 
-![](./images/screenshot.png)
+![](./images/digitalClock.png)
 
 ### Built with
 
